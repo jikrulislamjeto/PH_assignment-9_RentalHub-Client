@@ -97,7 +97,7 @@ function MobileNav() {
             nativeButton={false}
             render={
               <Link
-                href="/login"
+                href="/signin"
                 className={cn(
                   buttonVariants({
                     variant: "outline",
@@ -115,7 +115,7 @@ function MobileNav() {
             nativeButton={false}
             render={
               <Link
-                href="/register"
+                href="/signup"
                 className={cn(
                   buttonVariants({
                     size: "lg",

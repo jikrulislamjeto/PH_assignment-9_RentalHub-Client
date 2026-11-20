@@ -119,7 +119,7 @@ function Hero() {
                 />
               </Link>
               <Link
-                href="/register"
+                href="/signup"
                 className={cn(
                   buttonVariants({
                     variant: "outline",

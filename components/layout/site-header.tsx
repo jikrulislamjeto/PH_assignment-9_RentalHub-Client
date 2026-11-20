@@ -36,7 +36,7 @@ function SiteHeader() {
           />
 
           <Link
-            href="/login"
+            href="/signin"
             className={cn(
               buttonVariants({
                 variant: "ghost",
@@ -50,7 +50,7 @@ function SiteHeader() {
           </Link>
 
           <Link
-            href="/register"
+            href="/signup"
             className={cn(
               buttonVariants({
                 size: "lg",
