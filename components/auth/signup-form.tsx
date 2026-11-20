@@ -17,6 +17,7 @@ import {
   X,
   ShoppingBag,
   Wrench,
+  ShieldCheck,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -26,7 +27,7 @@ import { GoogleButton } from "./google-button"
 import { authClient } from "@/lib/auth-client"
 import { cn } from "@/lib/utils"
 
-export type UserRole = "Customer" | "Owner"
+export type UserRole = "Customer" | "Owner" | "Admin"
 
 export interface SignUpData {
   name: string
@@ -325,15 +326,19 @@ export function SignUpForm({ onDataCollected }: SignUpFormProps) {
 
         {/* Account Role Selector */}
         <div className="space-y-1.5 pt-1">
-          <Label>Account Purpose / Role</Label>
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="flex items-center justify-between">
+            <Label>Select Account Role</Label>
+            <span className="text-[10px] text-white/40">Selected: {role}</span>
+          </div>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+            {/* Customer Role */}
             <button
               type="button"
               onClick={() => setRole("Customer")}
               className={cn(
-                "flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+                "flex flex-col items-start gap-1 rounded-xl border p-2.5 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-white/40",
                 role === "Customer"
-                  ? "border-white/40 bg-white/8 text-white ring-1 ring-white/20"
+                  ? "border-emerald-500/50 bg-emerald-500/10 text-white ring-1 ring-emerald-500/20"
                   : "border-white/10 bg-white/2 text-white/60 hover:border-white/20 hover:text-white"
               )}
             >
@@ -347,17 +352,18 @@ export function SignUpForm({ onDataCollected }: SignUpFormProps) {
                 )}
               </div>
               <span className="text-[10px] text-white/45 leading-tight">
-                Browse & rent equipment
+                Rent equipment
               </span>
             </button>
 
+            {/* Owner Role */}
             <button
               type="button"
               onClick={() => setRole("Owner")}
               className={cn(
-                "flex flex-col items-start gap-1 rounded-xl border p-3 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+                "flex flex-col items-start gap-1 rounded-xl border p-2.5 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-white/40",
                 role === "Owner"
-                  ? "border-white/40 bg-white/8 text-white ring-1 ring-white/20"
+                  ? "border-amber-500/50 bg-amber-500/10 text-white ring-1 ring-amber-500/20"
                   : "border-white/10 bg-white/2 text-white/60 hover:border-white/20 hover:text-white"
               )}
             >
@@ -371,7 +377,32 @@ export function SignUpForm({ onDataCollected }: SignUpFormProps) {
                 )}
               </div>
               <span className="text-[10px] text-white/45 leading-tight">
-                List equipment for rent
+                List equipment
+              </span>
+            </button>
+
+            {/* Admin Role */}
+            <button
+              type="button"
+              onClick={() => setRole("Admin")}
+              className={cn(
+                "flex flex-col items-start gap-1 rounded-xl border p-2.5 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+                role === "Admin"
+                  ? "border-indigo-500/50 bg-indigo-500/10 text-white ring-1 ring-indigo-500/20"
+                  : "border-white/10 bg-white/2 text-white/60 hover:border-white/20 hover:text-white"
+              )}
+            >
+              <div className="flex w-full items-center justify-between">
+                <span className="flex items-center gap-1.5 text-xs font-semibold text-white">
+                  <ShieldCheck className="size-3.5 text-indigo-400" />
+                  Admin
+                </span>
+                {role === "Admin" && (
+                  <CheckCircle2 className="size-3.5 text-indigo-400" />
+                )}
+              </div>
+              <span className="text-[10px] text-white/45 leading-tight">
+                Manage platform
               </span>
             </button>
           </div>
