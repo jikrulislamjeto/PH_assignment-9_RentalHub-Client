@@ -98,12 +98,14 @@ function MobileNav() {
             render={
               <Link
                 href="/login"
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "lg",
-                  className:
-                    "h-11 w-full border-white/15 bg-transparent text-white hover:bg-white/10 hover:text-white",
-                })}
+                className={cn(
+                  buttonVariants({
+                    variant: "outline",
+                    size: "lg",
+                    className:
+                      "h-11 w-full border-white/15 bg-transparent text-white hover:bg-white/10 hover:text-white",
+                  })
+                )}
               />
             }
           >
@@ -114,11 +116,13 @@ function MobileNav() {
             render={
               <Link
                 href="/register"
-                className={buttonVariants({
-                  size: "lg",
-                  className:
-                    "h-11 w-full bg-white font-semibold text-black hover:bg-white/90",
-                })}
+                className={cn(
+                  buttonVariants({
+                    size: "lg",
+                    className:
+                      "h-11 w-full bg-white font-semibold text-black hover:bg-white/90",
+                  })
+                )}
               />
             }
           >

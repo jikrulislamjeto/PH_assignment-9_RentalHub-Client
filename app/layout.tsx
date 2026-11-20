@@ -28,10 +28,10 @@ export default function RootLayout({
         geist.variable
       )}
     >
-      <body>
+      <body className="flex min-h-svh flex-col">
         <ThemeProvider>
           <SiteHeader />
-          {children}
+          <main className="flex-1">{children}</main>
         </ThemeProvider>
       </body>
     </html>

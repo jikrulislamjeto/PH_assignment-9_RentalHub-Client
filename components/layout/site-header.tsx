@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Search } from "lucide-react"
+import { cn } from "cn"
 
 import { buttonVariants } from "@/components/ui/button"
 import { Brand } from "./brand"
@@ -18,11 +19,13 @@ function SiteHeader() {
           <Link
             href="/equipment"
             aria-label="Search equipment"
-            className={buttonVariants({
-              variant: "ghost",
-              size: "icon-lg",
-              className: "text-white/60 hover:bg-white/10 hover:text-white",
-            })}
+            className={cn(
+              buttonVariants({
+                variant: "ghost",
+                size: "icon-lg",
+                className: "text-white/60 hover:bg-white/10 hover:text-white",
+              })
+            )}
           >
             <Search />
           </Link>
@@ -34,23 +37,27 @@ function SiteHeader() {
 
           <Link
             href="/login"
-            className={buttonVariants({
-              variant: "ghost",
-              size: "lg",
-              className:
-                "hidden h-9 px-3 text-sm text-white/65 hover:bg-white/10 hover:text-white sm:inline-flex",
-            })}
+            className={cn(
+              buttonVariants({
+                variant: "ghost",
+                size: "lg",
+                className:
+                  "hidden px-3 text-sm text-white/65 hover:bg-white/10 hover:text-white sm:inline-flex",
+              })
+            )}
           >
             Login
           </Link>
 
           <Link
             href="/register"
-            className={buttonVariants({
-              size: "lg",
-              className:
-                "hidden h-9 rounded-xl bg-white px-4 text-sm font-semibold text-black shadow-sm hover:bg-white/90 sm:inline-flex",
-            })}
+            className={cn(
+              buttonVariants({
+                size: "lg",
+                className:
+                  "hidden rounded-xl bg-white px-4 font-semibold text-black shadow-sm hover:bg-white/90 sm:inline-flex",
+              })
+            )}
           >
             Register
           </Link>
